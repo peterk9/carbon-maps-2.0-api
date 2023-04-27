@@ -1,0 +1,32 @@
+  type Query {
+    dataCenterLocations: [DataCenterLocation!]!
+    balancingAuthority(filter: BalancingAuthorityFilter!): BalancingAuthority
+  }
+
+  type BalancingAuthority {
+    id: ID!
+    lastUpdateSeconds: String!
+    percent: Int!
+    gcO2eqkWh: Float!
+    pointTime: String!
+  }
+
+  type DataCenterLocation {
+    name: String!
+    dataCenter: String!
+    dataCenterOperator: String!
+    balancingAuthority: BalancingAuthority
+    buildingId: String!
+    buildingAddress: String!
+    buildingCityStatePostal: String!
+    latitude: String!
+    longitude: String!
+    metroArea: String!
+    country: String!    
+  }
+
+  input BalancingAuthorityFilter  {
+    latitude: String!
+    longitude: String!
+  }
+

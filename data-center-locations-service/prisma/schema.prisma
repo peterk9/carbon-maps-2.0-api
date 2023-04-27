@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model DataCenterLocation {
+  id                      Int    @id @default(autoincrement())
+  name                    String @db.VarChar(255)
+  dataCenter              String @db.VarChar(255)
+  dataCenterOperator      String @db.VarChar(255)
+  buildingId              Int
+  buildingAddress         String @db.VarChar(255)
+  buildingCityStatePostal String @db.VarChar(255)
+  latitude                String @db.VarChar(255)
+  longitude               String @db.VarChar(255)
+  metroArea               String @db.VarChar(255)
+  country                 String @db.VarChar(255)
+  slug                    String @default("") @db.VarChar(255)
+}
